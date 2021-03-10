@@ -1,4 +1,4 @@
-import routes from "..//routes";
+import routes from "../routes";
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
@@ -27,7 +27,8 @@ export const postLogin = (req, res) => {
 };
 
 export const logout = (req, res) =>
-  res.render("logout", { pageTitle: "Logout" });
+// To Do: Process Log Out
+  res.redirect(routes.home);
 
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 

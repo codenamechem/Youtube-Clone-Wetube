@@ -7,7 +7,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-import golbalRouter from "./routers/globalRouter";
+import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
 
@@ -37,7 +37,7 @@ app.use(passport.session());
 
 app.use(localsMiddleware);
 
-app.use(routes.home, golbalRouter);
+app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.video, videoRouter);
 

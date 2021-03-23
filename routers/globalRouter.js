@@ -1,26 +1,40 @@
 import express from "express";
+import passport from "passport";
 import routes from "../routes";
 import { home, search } from "../controllers/videoControllers";
 import {
   getJoin,
   getLogin,
+  getMe,
+  githubLogin,
   logout,
+  postGithubLogIn,
   postJoin,
   postLogin,
 } from "../controllers/userControllers";
-import { onlyPublic } from "../middlewares";
+import { onlyPrivate, onlyPublic } from "../middlewares";
 
-const golbalRouter = express.Router();
+const globalRouter = express.Router();
 
-golbalRouter.get(routes.join, onlyPublic, getJoin);
-golbalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
+globalRouter.get(routes.join, onlyPublic, getJoin);
+globalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
 
-golbalRouter.get(routes.login, onlyPublic, getLogin);
-golbalRouter.post(routes.login, onlyPublic, postLogin);
+globalRouter.get(routes.login, onlyPublic, getLogin);
+globalRouter.post(routes.login, onlyPublic, postLogin);
 
-golbalRouter.get(routes.home, home);
-golbalRouter.get(routes.search, search);
+globalRouter.get(routes.home, home);
+globalRouter.get(routes.search, search);
 
-golbalRouter.get(routes.logout, onlyPublic, logout);
+globalRouter.get(routes.logout, onlyPrivate, logout);
 
-export default golbalRouter;
+globalRouter.get(routes.gitHub, githubLogin);
+
+globalRouter.get(
+  routes.githubCallback,
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  postGithubLogIn
+);
+
+globalRouter.get(routes.me, getMe);
+
+export default globalRouter;

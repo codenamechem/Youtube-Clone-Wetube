@@ -61,3 +61,7 @@ db.collection_name.find({$where: "this.comments.length==0"})
 
 그 외에도 $regex 를 활용하여 정규표현식을 통해서 query 가능
 projection 에는 boolean expression을 활용하여 조회할 데이터 설정 가능
+
+
+> db.users.find()
+> db.users.remove({})

@@ -158,3 +158,9 @@ $ git add .
 $ git commit -m "커밋 메시지"
 $ git push 4) Review 및 병합 (Review 수행자)
 리뷰 후 최종 결과 만족 시 병합(merge) → github에서 pull request merge 버튼 클릭
+
+
+loose object file corrupt 해결
+find .git/objects/ -type f -empty | xargs rm
+git fetch -p
+git fsck --full

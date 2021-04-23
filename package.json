@@ -37,7 +37,8 @@
     "pug": "^3.0.2",
     "sass-loader": "^11.0.1",
     "webpack": "^5.27.1",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.5.0",
+    "mini-css-extract-plugin": "^1.3.9"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
@@ -56,7 +57,6 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "mini-css-extract-plugin": "^1.3.9",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
   }

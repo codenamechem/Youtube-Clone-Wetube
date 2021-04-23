@@ -9,7 +9,7 @@ import "./models/User";
 
 dotenv.config();
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const handleListing = () =>
   console.log(`✅Listing on:https//localhost:${PORT}`);

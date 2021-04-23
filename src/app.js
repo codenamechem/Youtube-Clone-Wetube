@@ -3,6 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import passport from "passport";
+import mongoose from "mongoose";
 import session from "express-session";
 import path from "path";
 import MongoStore from "connect-mongo";
@@ -31,7 +32,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost/" }),
+    store: MongoStore.create({ mongoUrl: mongoose.connection }),
   })
 );
 

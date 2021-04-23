@@ -1,6 +1,6 @@
 import express from "express";
 import morgan from "morgan";
-import helmet from "helmet";
+//import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import passport from "passport";
 import mongoose from "mongoose";
@@ -18,7 +18,7 @@ import "./passport";
 
 const app = express();
 
-app.use(helmet({ contentSecurityPolicy: false }));
+//app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "static")));
